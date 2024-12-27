@@ -1,0 +1,630 @@
+/* ---------------------------------- */
+/* HEADER */
+/* ---------------------------------- */
+
+.header {
+  /* to put logo to left side and "navigation" to right side ,we use flex box */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fdf2e9;
+  /* we want our navigation should be sticky,means while scrolling it will be visible while scrolling  and it gets easier when height is fixed*/
+  height: 9.6rem;
+  padding: 0.48rem;
+}
+.logo {
+  height: 2.2rem;
+}
+
+/* ---------------------------------- */
+/* NAVIGATION */
+/* ---------------------------------- */
+.main-nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+}
+/* now styling anchor links */
+.main-nav-link:link, /* here specificity 2*/
+.main-nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 1.8rem;
+  transition: all 0.3s;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+  /* transition: all 0.3s; */
+  color: #cf711f; /* dark color */
+}
+
+.main-nav-link.nav-cta:link, /* here specificity 3*/
+.main-nav-link.nav-cta:visited {
+  /* make same cta as we made for "eat well" */
+  padding: 1.2rem 2.4rem;
+  border-radius: 9px;
+  color: #fff;
+  background-color: #e67e22;
+}
+
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active {
+  color: #cf711f; /* dark color */
+  /* no need to add transition as we already applied */
+}
+
+/* ---------------------------------- */
+/* HERO SECTION */
+/* ---------------------------------- */
+
+/* use grid */
+.section-hero {
+  background-color: #fdf2e9;
+  padding: 4.8rem 0 9.6rem 0;
+}
+
+.hero {
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9.6rem;
+  align-items: center;
+}
+/* .heading-primary { */
+
+.hero-description {
+  font-size: 2rem;
+  margin-bottom: 4.8rem; /* gap b/w sub head and buttons*/
+  /* line-height: 1.8rem; */
+}
+
+.hero-img {
+  width: 100%; /* it will fill entire parent element(hero-img-box) */
+}
+
+/* styling buttons */
+/* .btn:link,
+.btn:visited  */
+
+/* .btn--full:link,
+.btn--full:visited  */
+
+/* .btn--full:hover,
+.btn--full:active  */
+
+/* .btn--outline:link,
+.btn--outline:visited  */
+
+/* .btn--outline:hover,
+.btn--outline:active  */
+
+/* .margin-right-sm  */
+
+/* ------------------------------------------------------------------- */
+/* Part:3 add customers */
+.delivered-meals {
+  /* this time using flex coz here i am not worry about size of column*/
+  display: flex;
+  margin-top: 8rem;
+  align-items: center; /* vertically*/
+  gap: 1.6rem;
+}
+.delivered-imgs {
+  display: flex;
+}
+
+.delivered-imgs img {
+  height: 4.8rem; /* 64px*/
+  width: 4.8rem;
+  border-radius: 50%;
+  /* to overlap the images"reduce the gap" */
+  margin-right: -1.6rem;
+  /* to add border around the imgs  */
+  border: 3px solid #fdf2e9;
+}
+/* now to make space b/w last image and text */
+.delivered-imgs img:last-child {
+  margin: 0;
+}
+.delivered-text {
+  /* use smaller font size than 2rem(hero-description) coz it is a sub text */
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.delivered-text span {
+  color: #cf711f; /* used coolors website to check contrast*/
+  font-weight: 700;
+}
+/* ------------------------------------------------------------------- */
+/* ---------------------------------- */
+/* FETURED IN SECTION */
+/* ---------------------------------- */
+.section-featured {
+  padding: 4.8rem 0 3.2rem 0;
+}
+.heading-featured-in {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 2.4rem;
+  color: #888;
+}
+/* to make logo small and align side by side */
+.logos {
+  display: flex; /* good practice using flex for images*/
+  justify-content: space-evenly;
+}
+
+.logos img {
+  height: 3.2rem;
+  filter: brightness(0); /*imp property */
+  opacity: 50%;
+}
+
+/* ---------------------------------- */
+/* HOW IT WORKS SECTION */
+/* ---------------------------------- */
+.section-how {
+  padding: 9.6rem 0;
+}
+/* here we had build a reusable container and paste it to reusable section that will help in building "how it work" section*/
+
+/* heading-secondary & subheading are reusable hence find it in reusable section */
+.step-number {
+  font-size: 8.6rem;
+  font-weight: 600;
+  color: #ddd;
+}
+
+.step-description {
+  font-size: 1.8rem;
+  line-height: 1.8;
+}
+/* to center the image inside the image box(hori & vert) */
+.step-img-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* wanted circle around images */
+.step-img-box::before,
+.step-img-box::after {
+  content: ""; /* in order to make it visible on wepage,you have to give something or add just spcaes */
+  display: block;
+
+  border-radius: 50%;
+  position: absolute; /*centering technique using absolut,top,left,transform */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.step-img-box::before {
+  width: 60%;
+  /* height: 60%; */
+
+  /* 60% of parent's width */
+  padding-bottom: 60%;
+
+  background-color: #fdf2e9;
+  z-index: -1;
+}
+/* you cannot use before again */
+/* to add 2nd smaller circle */
+.step-img-box::after {
+  width: 45%;
+  padding-bottom: 45%;
+  background-color: #fae5d3;
+  z-index: -1;
+}
+.step-img {
+  width: 35%;
+}
+
+/* ---------------------------------- */
+/* HOW IT WORKS SECTION */
+/* ---------------------------------- */
+.section-meals {
+  padding: 9.6rem 0; /* copied from how it work sect as padding has to   be same*/
+}
+.meal {
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.085);
+  border-radius: 11px;
+  overflow: hidden; /* to make card-img round(prevent overflow) */
+  transition: all 0.4s; /* for card transition*/
+}
+
+/* Adding hover effect to meal cards */
+.meal:hover {
+  transform: translateY(-1.2rem);
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.065);
+}
+
+.meal-content {
+  padding: 3.2rem 4.8rem 4.8rem 4.8rem;
+}
+
+.meal-tags {
+  margin-bottom: 1.2rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #333;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.tag--vegetarian {
+  background-color: #51cf66;
+}
+
+.tag--vegan {
+  background-color: #94d82d;
+}
+
+.tag--paleo {
+  background-color: #ffd43b;
+}
+.meal-title {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 3.2rem;
+}
+
+.meal-attributes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.meal-sub-attribute {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.meal-icon {
+  height: 2.4rem;
+  width: 2.4rem;
+  color: #e67e22;
+}
+.meal-img {
+  width: 100%;
+}
+
+/* here we have built reusable list for meal and pricing list */
+
+.all-recipes {
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+/* ---------------------------------- */
+/* TESTIMONIAL SECTION */
+/* ---------------------------------- */
+.section-testimonials {
+  background-color: #fdf2e9;
+  display: grid;
+  grid-template-columns: 50fr 40fr;
+  /* in fr both value has to be same for 100% (1fr,1fr) or (50fr 50fr)*/
+  align-items: center;
+}
+
+.testimonial-container {
+  padding: 9.6rem;
+}
+/* to put it in 2 grid using reusable grid */
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 4.8rem;
+  column-gap: 8rem;
+}
+
+.testimonial-img {
+  width: 6.4rem;
+  border-radius: 50%;
+}
+
+.testimonial-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 1.6rem;
+}
+.testimonial-name {
+  font-size: 1.6rem;
+  color: #6f6f6f;
+}
+/* gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  padding: 1.6rem;
+}
+.gallery-item {
+  overflow: hidden;
+  /* since the image transition getting out of the parent(figure) */
+}
+.gallery-item img {
+  display: block;
+  width: 100%;
+  transition: all 0.4s; /* to make the transition smooth*/
+}
+
+.gallery-item img:hover {
+  transform: scale(1.1);
+}
+/* ---------------------------------- */
+/* PRICING SECTION 6*/
+/* ---------------------------------- */
+.section-pricing {
+  padding: 9.6rem 0;
+}
+.pricing-plan {
+  border-radius: 11px;
+
+  width: 75%;
+}
+.pricing-plan--starter {
+  justify-self: end;
+  border: 2px solid #fdf2e9;
+  padding: 4.6rem;
+}
+.pricing-plan--complete {
+  background-color: #fdf2e9;
+  padding: 4.8rem;
+  position: relative;
+  /* coz we are making its child position absolute */
+  overflow: hidden;
+  /* for ribbon to not get outside its parent element*/
+}
+/* Adding Ribbon */
+.pricing-plan--complete::after {
+  content: "Best value";
+  position: absolute;
+  top: 6%;
+  right: -18%;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #333;
+  background-color: #ffd43b;
+  padding: 0.8rem 8rem;
+  transform: rotate(45deg);
+}
+.plan-header {
+  text-align: center;
+  margin-bottom: 4.8rem;
+}
+.plan-name {
+  color: #cf711f;
+  font-weight: 600;
+  font-size: 2rem;
+  /* text-align: center; */
+  text-transform: uppercase;
+  letter-spacing: 0.75;
+  margin-bottom: 3.2rem;
+}
+.plan-price {
+  font-size: 6.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.6rem;
+}
+
+.plan-price span {
+  font-size: 3rem;
+  font-size: 3rem;
+  font-weight: 500;
+  margin-right: 0.8rem;
+}
+.plan-text {
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  color: #6f6f6f;
+}
+.plan-sign-up {
+  text-align: center;
+  margin-top: 4.8rem;
+}
+.plan-details {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  text-align: center;
+}
+/* styling Features */
+.feature-icon {
+  color: #e67e22;
+  height: 3.2rem;
+  width: 3.2rem;
+  background-color: #fdf2e9;
+  margin-bottom: 3.2rem;
+  padding: 1.6rem;
+  border-radius: 50%;
+}
+.feature-title {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 1.6rem;
+}
+.feature-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+}
+/* ---------------------------------- */
+/* CTA SECTION 6*/
+/* ---------------------------------- */
+
+.section-cta {
+  /* top, right, bottom, left */
+  /* padding: 9.6rem 0 12.8rem 0; */
+
+  /* top, horizontal, left */
+  padding: 4.8rem 0 12.8rem;
+  /* 12.8rem --> after footer--> to adjust with footer spacing */
+}
+
+.cta {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  /* background-color: #e67e22; */
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
+  /* background-image: linear-gradient(180deg, red, #e67e22);  OR*/
+  border-radius: 11px;
+  background-image: linear-gradient(to right bottom, #eb984e, #e67e22);
+  overflow: hidden;
+}
+
+.cta-text-box {
+  padding: 4.8rem 6.4rem 6.4rem 6.4rem;
+  color: #45260a;
+}
+
+.cta .heading-secondary {
+  /* color: #45260a; */
+  color: inherit;
+  /* it will inherit parent(cta-text-box) color */
+  margin-bottom: 3.2rem;
+}
+
+.cta-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 4.8rem;
+}
+.cta-img-box {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(235, 151, 78, 0.35),
+      rgba(230, 125, 34, 0.35)
+    ),
+    url(../img/eating.jpg);
+
+  background-size: cover; /* covers the div*/
+  background-position: center;
+}
+/* form */
+.cta-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3.2rem;
+}
+
+.cta-form label {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+  margin-top: 1.2rem;
+}
+.cta-form input,
+.cta-form select {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  /* since placeholder do not inherit font family directly,hence we can use inherit */
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  background-color: #fdf2e9;
+  border-radius: 9px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+.cta-form input::placeholder {
+  color: #aaa;
+}
+
+.cta *:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.8rem rgba(253, 242, 234, 0.5);
+}
+
+/* ---------------------------------- */
+/* FOOTER SECTION 8*/
+/* ---------------------------------- */
+
+.footer {
+  padding: 12.8rem 0;
+  border-top: 1px solid #eee;
+}
+/* since we want footer div bit larger ,not equi size(due to reusable grid) */
+.grid--footer {
+  grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+}
+.logo-col {
+  display: flex;
+  flex-direction: column;
+}
+.footer-logo {
+  display: block;
+  margin-bottom: 3.2rem;
+}
+.social-links {
+  list-style: none;
+  display: flex;
+  gap: 2.4rem;
+}
+
+.social-icon {
+  height: 2.4rem;
+  width: 2.4rem;
+}
+
+.copyright {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: #767676;
+  margin-top: auto;
+}
+.footer-heading {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 4rem;
+}
+
+.contacts {
+  font-style: normal;
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+.address {
+  margin-bottom: 2.4rem;
+}
+
+.footer-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+.footer-link:link,
+.footer-link:visited {
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: #767676;
+  transition: all 0.3s;
+}
+
+.footer-link:hover,
+.footer-link:active {
+  color: #555;
+}
